@@ -1,24 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Navbar from './Navbar';
+import Home from './Home';
+import Counter from './Counter';
+import Tweet from './Tweet';
+import ApiData from './ApiData';
+import UsersData from './UsersData';
+import Emoji from './Emoji';
+import FormValidation from './FormValidation';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/counter" element={<Counter />} />
+        <Route path="/tweet" element={<Tweet />} />
+        <Route path="/apidata" element={<ApiData />} />
+        <Route path="/usersdata" element={<UsersData />} />
+        <Route path="/emoji" element={<Emoji />} />
+        <Route path="/form" element={<FormValidation />} />
+      </Routes>
+    </Router>
   );
 }
 
